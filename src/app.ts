@@ -2,6 +2,7 @@ import { ReferenceItem, UL } from './classes';
 import { Librarian, Logger } from './interfaces';
 import RefBook from './classes/Encyclopedia';
 import { printRefBook } from './functions';
+import { Library } from './classes';
 
 showHello('greeting', 'TypeScript');
 
@@ -145,3 +146,30 @@ function showHello(divName: string, name: string) {
 // Task 06.03. Default Export ✔
 // printRefBook(new RefBook(1, 'TypeScript', 2023, 2));
 // printRefBook(new UL.UniversityLibrarian());
+
+// Task 06.05. Dynamic Import Expression ✔
+// const flag = true;
+// if (flag) {
+//     import('./classes')
+//         .then(obj => {
+//             const reader = new obj.Reader();
+//             reader.name = 'Anna';
+//             console.log(reader);
+//         })
+//         .catch(err => console.log(err));
+// }
+// if (flag) {
+//     const obj = await import('./classes');
+//     const reader = new obj.Reader();
+//     reader.name = 'Anna';
+//     console.log(reader);
+// }
+
+// Task 06.06. Type-Only Imports and Exports ✔
+// const lib = new Library();
+// const lib: Library = {
+//     id: 1,
+//     name: 'Anna',
+//     address: '',
+// };
+// console.log(lib);
