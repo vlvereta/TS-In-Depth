@@ -1,8 +1,9 @@
-import { ReferenceItem, UL } from './classes';
-import { Librarian, Logger } from './interfaces';
+import { ReferenceItem, UL, Shelf } from './classes';
+import { Book, Librarian, Logger, Magazine } from './interfaces';
 import RefBook from './classes/Encyclopedia';
-import { printRefBook } from './functions';
+import { getObjectProperty, printRefBook, purge } from './functions';
 import { Library } from './classes';
+import { Category } from './enums';
 
 showHello('greeting', 'TypeScript');
 
@@ -173,3 +174,36 @@ function showHello(divName: string, name: string) {
 //     address: '',
 // };
 // console.log(lib);
+
+// 07. Generics
+// Task 07.01. Generic Functions ✔
+const inventory: Book[] = [
+    { id: 10, title: 'The C Programming Language', author: 'K & R', available: true, category: Category.Software },
+    { id: 11, title: 'Code Complete', author: 'Steve McConnell', available: true, category: Category.Software },
+    { id: 12, title: '8-Bit Graphics with Cobol', author: 'A. B.', available: true, category: Category.Software },
+    { id: 13, title: 'Cool autoexec.bat Scripts!', author: 'C. D.', available: true, category: Category.Software }
+];
+// const r: Book[] = purge(inventory);
+// console.log(r);
+// console.log(purge([1, 2, 3, 5]));
+
+// Task 07.02. Generic Interfaces and Classes ✔
+const bookShelf = new Shelf<Book>();
+inventory.forEach(book => bookShelf.add(book));
+console.log(bookShelf.getFirst());
+
+const magazines: Magazine[] = [
+    { title: 'Programming Language Monthly', publisher: 'Code Mags' },
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press' },
+    { title: 'Five Points', publisher: 'GSU' }
+];
+const magazineShelf = new Shelf<Magazine>();
+magazines.forEach(mag => magazineShelf.add(mag));
+console.log(magazineShelf.getFirst());
+
+// Task 07.03. Generic Constraints ✔
+magazineShelf.printTitles();
+console.log(magazineShelf.find('Five Points'));
+
+console.log(getObjectProperty(magazines[0], 'title'));
+console.log(getObjectProperty(inventory[0], 'title'));
