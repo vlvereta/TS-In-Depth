@@ -210,20 +210,48 @@ function showHello(divName: string, name: string) {
 // console.log(getObjectProperty(inventory[0], 'title'));
 
 // Task 07.04. Utility Types ✔
-const bookRequiredFields: BookRequiredFields = {
-    id: 1,
-    author: 'Anna',
-    available: false,
-    category: Category.Angular,
-    markDamaged: null,
-    pages: 200,
-    title: 'Unknown',
-};
+// const bookRequiredFields: BookRequiredFields = {
+//     id: 1,
+//     author: 'Anna',
+//     available: false,
+//     category: Category.Angular,
+//     markDamaged: null,
+//     pages: 200,
+//     title: 'Unknown',
+// };
 
-const updatedBook: UpdatedBook = {
-    id: 1,
-};
+// const updatedBook: UpdatedBook = {
+//     id: 1,
+// };
 
-let params: Parameters<CreateCustomerFunctionType>;
-params = ['Anna', 30];
-createCustomer(...params);
+// let params: Parameters<CreateCustomerFunctionType>;
+// params = ['Anna', 30];
+// createCustomer(...params);
+
+// 08. Decorators
+// Task 08.01. Class Decorators (sealed) ✔
+// Task 08.02. Class Decorators that replace constructor functions (logger) ✔
+// Task 08.03. Method Decorator (writable) ✔
+// const ul = new UL.UniversityLibrarian();
+// UL.UniversityLibrarian['a'] = 123;
+// Object.getPrototypeOf(ul)['b'] = 123;
+// console.log(ul);
+// ul.name = 'Anna';
+// (ul as UL.UniversityLibrarian & { printLibrarian: () => void }).printLibrarian();
+// Object.getPrototypeOf(ul).assistFaculty = null;
+// Object.getPrototypeOf(ul).teachCommunity = null;
+
+// Task 08.04. Method Decorator (timeout) ✔
+// const ref = new RefBook(1, 'TypeScript', 2023, 2);
+// ref.printItem();
+
+// Task 08.05. Parameter Decorator (logParameter) ✔
+// Task 08.06. Property Decorator ✔
+// ul.name = 'Anna';
+// ul.assistCustomer('Boris', 'Learn TypeScript');
+// console.log(ul);
+
+// Task 08.07. Accessor Decorator
+const ref = new RefBook(1, 'TypeScript', 2023, 2);
+ref.copies = 10;
+console.log(ref);
