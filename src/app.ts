@@ -1,7 +1,7 @@
 import { ReferenceItem, UL, Shelf } from './classes';
 import { Book, Librarian, Logger, Magazine } from './interfaces';
 import RefBook from './classes/Encyclopedia';
-import { createCustomer, getObjectProperty, printRefBook, purge } from './functions';
+import { createCustomer, getBooksByCategory, getBooksByCategoryPromise, getObjectProperty, logCategorySearch, logSearchResults, printRefBook, purge } from './functions';
 import { Library } from './classes';
 import { Category } from './enums';
 import { BookRequiredFields, CreateCustomerFunctionType, UpdatedBook } from './types';
@@ -251,7 +251,34 @@ function showHello(divName: string, name: string) {
 // ul.assistCustomer('Boris', 'Learn TypeScript');
 // console.log(ul);
 
-// Task 08.07. Accessor Decorator
-const ref = new RefBook(1, 'TypeScript', 2023, 2);
-ref.copies = 10;
-console.log(ref);
+// Task 08.07. Accessor Decorator ✔
+// const ref = new RefBook(1, 'TypeScript', 2023, 2);
+// ref.copies = 10;
+// console.log(ref);
+
+// 09. Asynchronous Patterns
+// Task 09.01. Callback Functions ✔
+// console.log('Begin');
+// getBooksByCategory(Category.Software, logCategorySearch);
+// console.log('End');
+
+// Task 09.02. Promises ✔
+// console.log('Begin');
+// getBooksByCategoryPromise(Category.JavaScript)
+//     .then((titles) => {
+//         console.log(titles);
+//         return titles.length;
+//     })
+//     .then((length) => console.log(length))
+//     .catch((reason) => console.log(reason));
+// getBooksByCategoryPromise(Category.Software)
+//     .then((titles) => console.log(titles))
+//     .catch((reason) => console.log(reason));
+// console.log('End');
+
+// Task 09.03. Async Functions ✔
+// console.log('Begin');
+// logSearchResults(Category.JavaScript);
+// logSearchResults(Category.Software)
+//     .catch((error) => console.log(error));
+// console.log('End');
